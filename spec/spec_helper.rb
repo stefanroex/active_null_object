@@ -1,14 +1,5 @@
-require 'bundler'
-require 'active_record'
+require 'bundler/setup'
 require 'active_null_object'
-
-RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.order = "random"
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
-  end
-end
 
 ActiveRecord::Base.establish_connection 'sqlite3:///:memory:'
 ActiveRecord::Base.connection.instance_eval do
@@ -46,4 +37,19 @@ end
 
 class Message < ActiveRecord::Base
   belongs_to :user, null_object: true
+end
+
+RSpec.configure do |config|
+  config.order = "random"
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+
+  config.before do
+    ActiveRecord::Base.connection.begin_transaction joinable: false
+  end
+
+  config.after do
+    ActiveRecord::Base.connection.rollback_transaction
+  end
 end

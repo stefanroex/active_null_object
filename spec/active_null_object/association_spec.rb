@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ActiveNullObject' do
+describe ActiveNullObject::Association do
   let(:user) { User.create! }
   let(:post) { Post.create! }
   let(:comment) { Comment.create! }
