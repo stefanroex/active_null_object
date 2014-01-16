@@ -1,4 +1,4 @@
-Active Null Record
+Active Null Object
 ==================
 
 Instead of returning nil when an association is not found, return a [Null Object](http://martinfowler.com/eaaCatalog/specialCase.html).
