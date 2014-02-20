@@ -38,4 +38,18 @@ describe ActiveNullObject::Association do
       expect(message.user.class).to eq NullUser
     end
   end
+
+  describe 'Works with customizable initialize_method' do
+    it 'calls of new on the Nullobject' do
+      expect(NullUser).to receive(:new)
+      message.user
+    end
+
+    it 'calls of new on the Nullobject' do
+      ActiveNullObject.initialize_method = :custom
+      expect(NullUser).to receive(:custom)
+      message.user
+      ActiveNullObject.initialize_method = :new
+    end
+  end
 end

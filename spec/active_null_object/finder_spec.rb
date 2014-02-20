@@ -11,4 +11,18 @@ describe ActiveNullObject::Finder do
       expect(User.find_or_null_object(1).class).to eq NullUser
     end
   end
+
+  describe 'Works with customizable initialize_method' do
+    it 'calls of new on the Nullobject' do
+      expect(NullUser).to receive(:new)
+      User.find_or_null_object(1)
+    end
+
+    it 'calls of new on the Nullobject' do
+      ActiveNullObject.initialize_method = :custom
+      expect(NullUser).to receive(:custom)
+      User.find_or_null_object(1)
+      ActiveNullObject.initialize_method = :new
+    end
+  end
 end

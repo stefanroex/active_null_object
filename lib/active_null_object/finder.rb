@@ -4,7 +4,7 @@ module ActiveNullObject
 
     module ClassMethods
       def find_or_null_object(id)
-        find_by(id: id) || "Null#{name}".constantize.new
+        find_by(id: id) || "Null#{name}".constantize.public_send(ActiveNullObject.initialize_method)
       end
     end
   end

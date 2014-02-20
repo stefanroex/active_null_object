@@ -23,7 +23,7 @@ module ActiveNullObject
                         "Null#{name.to_s.classify}"
                       end
         define_method(name) do
-          super() || null_object.constantize.new
+          super() || null_object.constantize.public_send(ActiveNullObject.initialize_method)
         end
       end
     end
