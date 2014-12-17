@@ -15,9 +15,9 @@ Gem::Specification.new do |s|
   s.files         = Dir['VERSION', 'README.md', 'lib/**/*']
   s.require_paths = ["lib"]
 
-  s.add_dependency "activerecord", ">= 4.0.0"
-  s.add_dependency "activesupport", ">= 4.0.0"
+  s.add_dependency "activerecord", ">= 4.2.0.rc3"
+  s.add_dependency "activesupport", ">= 4.2.0.rc3"
 
-  s.add_development_dependency "rspec", ">= 3.0.0.beta1"
+  s.add_development_dependency "rspec", ">= 3.0.0"
   s.add_development_dependency "sqlite3"
 end

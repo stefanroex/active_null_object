@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'active_null_object'
 
-ActiveRecord::Base.establish_connection 'sqlite3:///:memory:'
+ActiveRecord::Base.establish_connection 'sqlite3::memory:'
 ActiveRecord::Base.connection.instance_eval do
   create_table('users')
 
