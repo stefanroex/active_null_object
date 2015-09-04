@@ -1,7 +1,14 @@
 language: ruby
+
 rvm:
   - 2.0.0
   - 2.1.7
   - 2.2.3
+
+gemfile:
+  - gemfiles/rails4.0.gemfile
+  - gemfiles/rails4.1.gemfile
+  - gemfiles/rails4.2.gemfile
+
 script:
-  - bundle exec rake ci
+  - bundle exec appraisal rake ci

@@ -1,7 +1,12 @@
 require 'bundler/setup'
 require 'active_null_object'
 
-ActiveRecord::Base.establish_connection 'sqlite3::memory:'
+if ActiveRecord.version >= Gem::Version.new('4.1.0')
+  ActiveRecord::Base.establish_connection 'sqlite3::memory:'
+else
+  ActiveRecord::Base.establish_connection 'sqlite3:///:memory:'
+end
+
 ActiveRecord::Base.connection.instance_eval do
   create_table('users')
 
