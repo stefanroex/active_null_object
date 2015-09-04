@@ -1,6 +1,7 @@
 Active Null Object
 ==================
 
+[![Gem Version](https://badge.fury.io/rb/active_null_object.svg)](http://badge.fury.io/rb/active_null_object)
 [![Build Status](https://travis-ci.org/stefanroex/active_null_object.svg)](https://travis-ci.org/stefanroex/active_null_object)
 
 Instead of returning nil when an association is not found, return a [Null Object](http://martinfowler.com/eaaCatalog/specialCase.html).
