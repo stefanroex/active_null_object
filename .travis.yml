@@ -10,7 +10,8 @@ gemfile:
   - gemfiles/rails4.1.gemfile
   - gemfiles/rails4.2.gemfile
 
-before_install:
+install:
+  - bundle install
   - bundle exec appraisal install
 
 script:
