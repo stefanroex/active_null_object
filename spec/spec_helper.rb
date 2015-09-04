@@ -21,6 +21,9 @@ end
 class NullUser
 end
 
+class Guest
+end
+
 class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
