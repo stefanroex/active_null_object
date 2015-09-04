@@ -1,6 +1,8 @@
 Active Null Object
 ==================
 
+[![Build Status](https://travis-ci.org/stefanroex/active_null_object.svg)](https://travis-ci.org/stefanroex/active_null_object)
+
 Instead of returning nil when an association is not found, return a [Null Object](http://martinfowler.com/eaaCatalog/specialCase.html).
 
 Associations
