@@ -18,4 +18,7 @@ Finder
 ```ruby
 # Use a specialized finder if you want a Null Object if the record is not found.
 User.find_or_null_object(1)
+
+# ...or pass explicit class name.
+User.find_or_null_object(1, null_object: 'NullAdmin')
 ```
