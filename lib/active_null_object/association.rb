@@ -13,7 +13,9 @@ module ActiveNullObject
         options = scope if scope.is_a?(Hash)
         null_object_name = options.delete(:null_object)
         belongs_to_without_null_object(relation_name, scope, options)
-        define_null_object_getter(relation_name, null_object_name) if null_object_name
+        if null_object_name
+          define_null_object_getter(relation_name, null_object_name)
+        end
       end
 
       def define_null_object_getter(relation_name, custom_name)

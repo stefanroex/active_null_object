@@ -1,0 +1,6 @@
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Exclude:
+    - 'lib/active_null_object/association.rb'
