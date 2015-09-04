@@ -9,21 +9,17 @@ module ActiveNullObject
     end
 
     module ClassMethods
-      def belongs_to_with_null_object(name, scope = nil, options = {})
+      def belongs_to_with_null_object(relation_name, scope = nil, options = {})
         options = scope if scope.is_a?(Hash)
         null_object_name = options.delete(:null_object)
-        belongs_to_without_null_object(name, scope, options)
-        define_null_object_getter(name, null_object_name) if null_object_name
+        belongs_to_without_null_object(relation_name, scope, options)
+        define_null_object_getter(relation_name, null_object_name) if null_object_name
       end
 
-      def define_null_object_getter(name, null_object_name)
-        null_object = if null_object_name.is_a?(String)
-                        null_object_name
-                      else
-                        "Null#{name.to_s.classify}"
-                      end
-        define_method(name) do
-          super() || null_object.constantize.public_send(ActiveNullObject.initialize_method)
+      def define_null_object_getter(relation_name, custom_name)
+        create_null_object = CreateNullObject.new(relation_name, custom_name)
+        define_method(relation_name) do
+          super() || create_null_object.call
         end
       end
     end
