@@ -5,6 +5,9 @@ sudo: false
 matrix:
   fast_finish: true
 
+env:
+  - CODECLIMATE_REPO_TOKEN=33bd81dda9cbe0d5cf7034e8aa48fe7351c238cf469bfd33a5f59755dc942639
+
 rvm:
   - 2.0.0
   - 2.1.7
